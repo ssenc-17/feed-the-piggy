@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Feed the Greedy Pig!</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div id="start-screen">
+    <div class="start-content">
+      <h1 class="start-title">FEED THE GREEDY PIGGY!</h1>
+      
+      <div class="start-instructions">
+        <p>Click to feed the pig.</p>
+        <p>Bigger food tastes better!</p>
+        <p>Bigger food costs something...</p>
+      </div>
+      
+      <button id="start-button">START PLAYING</button>
+    </div>
+  </div>
+
+  <div id="game-container" class="decay-0 hidden">
+    
+    <div id="food-selector">
+      <button class="food-btn active" data-food="apple" data-cost="0">
+        <img src="assets/images/apple.png" class="food-icon" alt="Apple">
+        <span class="food-info">+1pt</span>
+      </button>
+      <button class="food-btn locked" data-food="burger" data-cost="50">
+        <img src="assets/images/burger.png" class="food-icon" alt="Burger">
+        <span class="food-info">50pts</span>
+      </button>
+      <button class="food-btn locked" data-food="cake" data-cost="200">
+        <img src="assets/images/cake.png" class="food-icon" alt="Cake">
+        <span class="food-info">200pts</span>
+      </button>
+      <button class="food-btn locked" data-food="slop" data-cost="1000">
+        <img src="assets/images/slop.png" class="food-icon" alt="Golden Slop">
+        <span class="food-info">1000pts</span>
+      </button>
+    </div>
+
+    <div id="score-display">
+      <span id="score">0</span>
+    </div>
+
+    <div id="game-area">
+      
+      <div id="pig">
+        <img src="assets/images/pig.png" alt="Pig">
+        <div id="pig-mouth"></div>
+      </div>
+
+    </div>
+
+    <div id="end-message" class="hidden">
+      <p>Everything has a price.</p>
+      <p>Feed it all you want,</p>
+      <p>the pig's hunger will never be appeased.</p>
+    </div>
+
+    <div id="glitch-container"></div>
+
+  </div>
+
+  <script src="renderer.js"></script>
+</body>
+</html>

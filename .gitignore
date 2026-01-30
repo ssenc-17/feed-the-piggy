@@ -1,0 +1,10 @@
+<<<<<<< HEAD
+# Dependencies
+node_modules/
+=======
+# dependencies
+node_modules/
+
+# environment variables
+.env
+>>>>>>> f0b76a95d6309cc9f1198b968fc3fd08acbc65f6
