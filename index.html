@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Feed the Piggy!</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div id="start-screen">
+    <div class="start-content">
+      <img src="assets/images/header.png" class="start-header" alt="Feed the Greedy Piggy">
+      
+      <div class="start-instructions">
+        <p>Click or press [space] to feed the pig.</p>
+        <p>Bigger food tastes better,</p>
+        <p>Bigger food costs more!</p>
+      </div>
+      
+      <button id="start-button">START PLAYING</button>
+    </div>
+    
+    <div class="particles" id="start-particles"></div>
+  </div>
+
+  <div id="game-container" class="decay-0 hidden">
+    
+    <div id="food-selector">
+      <button class="food-btn active" data-food="apple" data-cost="0">
+        <img src="assets/images/apple.png" class="food-icon" alt="Apple">
+        <span class="food-name">Apple</span>
+        <span class="food-info">+1pt</span>
+      </button>
+      <button class="food-btn locked" data-food="burger" data-cost="25">
+        <img src="assets/images/burger.png" class="food-icon" alt="Burger">
+        <span class="food-name">Burger</span>
+        <span class="food-info">25pts</span>
+      </button>
+      <button class="food-btn locked" data-food="cake" data-cost="100">
+        <img src="assets/images/cake.png" class="food-icon" alt="Cake">
+        <span class="food-name">Cake</span>
+        <span class="food-info">100pts</span>
+      </button>
+      <button class="food-btn locked" data-food="slop" data-cost="500">
+        <img src="assets/images/slop.png" class="food-icon" alt="Golden Slop">
+        <span class="food-name">Golden Slop</span>
+        <span class="food-info">500pts</span>
+      </button>
+    </div>
+
+    <div id="score-display">
+      <span id="score">0</span>
+    </div>
+    
+    <div id="combo-display" class="hidden">
+      <div id="combo-text">COMBO</div>
+      <div id="combo-count">0</div>
+      <div id="combo-multiplier">×1</div>
+    </div>
+    
+    <div id="streak-message" class="hidden"></div>
+
+    <div id="game-area">
+      
+      <div id="pig">
+        <img src="assets/images/pig.png" alt="Pig">
+        <div id="pig-mouth"></div>
+      </div>
+
+    </div>
+
+    <!-- End game message -->
+    <div id="end-message" class="hidden">
+      <p>Everything has a cost.</p>
+      <p>Feed it all you want.</p>
+      <p>The pig's hunger will never be appeased.</p>
+    </div>
+
+    <div id="glitch-container"></div>
+    
+    <div class="particles" id="game-particles"></div>
+
+  </div>
+
+  <script src="renderer.js"></script>
+</body>
+</html>
