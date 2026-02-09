@@ -517,26 +517,31 @@ function initParticles(container, count) {
 }
 
 function getPigMouthBounds() {
-  const mouthElement = pigMouth;
-  const mouthRect = mouthElement.getBoundingClientRect();
-  
+  const rect = pigImage.getBoundingClientRect();
+
+  const centerX = rect.left + rect.width / 2;
+  const centerY = rect.top + rect.height / 2;
+
+  const mouthOffsetY = rect.height * 0.15;
+  const mouthRadius = rect.width * 0.18;
+
   return {
-    left: mouthRect.left,
-    right: mouthRect.right,
-    top: mouthRect.top,
-    bottom: mouthRect.bottom,
-    centerX: (mouthRect.left + mouthRect.right) / 2,
-    centerY: (mouthRect.top + mouthRect.bottom) / 2
+    centerX,
+    centerY: centerY + mouthOffsetY,
+    radius: mouthRadius
   };
 }
 
 function checkMouthCollision(x, y) {
   const mouth = getPigMouthBounds();
-  
-  const padding = 10;
-  return x >= (mouth.left - padding) && x <= (mouth.right + padding) && 
-         y >= (mouth.top - padding) && y <= (mouth.bottom + padding);
+
+  const dx = x - mouth.centerX;
+  const dy = y - mouth.centerY;
+  const distance = Math.sqrt(dx * dx + dy * dy);
+
+  return distance <= mouth.radius;
 }
+
 
 function calculateForce(clickY) {
   const gameAreaRect = gameArea.getBoundingClientRect();
@@ -614,7 +619,7 @@ function throwFood(clickX, clickY) {
     velocityY += GRAVITY;
     
     if (config.erratic && frameCount % 5 === 0 && Math.random() > 0.7) {
-      velocityX += (Math.random() - 0.5) * 2; // Small horizontal wobble
+      velocityX += (Math.random() - 0.5) * 2;
       velocityY += (Math.random() - 0.5) * 1;
     }
     
